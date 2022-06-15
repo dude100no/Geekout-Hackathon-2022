@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "node -r dotenv/config server.js"
+    "dev-node": "node -r dotenv/config server.js",
+    "dev-nodemon": "nodemon --exec 'node -r dotenv/config' server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
