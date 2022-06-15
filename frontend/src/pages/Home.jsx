@@ -1,7 +1,5 @@
-import React from 'react';
- 
-function Home (){
-    return <h1>i hate this</h1>
+import React from "react"
+function Home() {
+    return <div>home page</div>
 }
- 
-export default Home;
+export default Home

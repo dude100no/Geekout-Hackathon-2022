@@ -3,49 +3,21 @@ import './App.css'
 import React from "react"
 import {
   BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
-import Home from './pages/home';
+  Routes, Route
+} from 'react-router-dom'
+import Home from './pages/Home'
+import Signup from './pages/signup'
+import Profile from './pages/profile'
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <Router>
-     <div className="App">
-      <ul>
-        <li>
-          <Link to="/home">Home</Link>
-        </li>
-      </ul>
       <Routes>
-            <Route exact path='/home' element={< Home />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-     <header className="App-header">
-     <h1 style={{fontSize: 80, fontFamily: 'Bradley Hand'}}>Honeycomb</h1>
-       <p style={{fontSize: 30, fontFamily: 'monospace'}}>Welcome to Honeycomb, a web app that's here to help.</p>
-         <a
-           className="App-link"
-           href="https://reactjs.org"
-           target="_blank"
-           rel="noopener noreferrer"
-         >
-           Learn React
-         </a>
-        
-         <a
-           className="App-link"
-           href="https://vitejs.dev/guide/features.html"
-           target="_blank"
-           rel="noopener noreferrer"
-         >
-           Vite Docs
-         </a>
-       
-     </header>
-    </div>
-  </Router>
+    </Router>
   )
 }
 
