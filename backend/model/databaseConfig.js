@@ -16,7 +16,7 @@
 
 // module.exports = dbConnect;
 
-import {Sequelize} from "sequelize";
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize("mysql://root:WzWhiAODtduaBNtTK5rN@containers-us-west-62.railway.app:6885/railway")
 

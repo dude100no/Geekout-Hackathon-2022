@@ -1,12 +1,11 @@
 const express = require("express");
-const formidable = require('formidable');
 const path = require('path');
 const fs = require('fs');
 const jwt = require("jsonwebtoken");
 
 const { key } = require("../config.js");
 
-const User_info = require("../model/user.js");
+const User = require("../model/user.js");
 
 var app = express();
 
@@ -18,10 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // GET Endpoint: To get the user information
-app.get("/user/:userid", isLoggedInMiddleware, (req, res) => {
-  User_info.getUserInfo(req.params.userid, (err, userinfo) => {
+app.get("/user/:userid", (req, res) => {
+  User.getUserInfo(req.params.userid, (err, userinfo) => {
     if (err) {
-      res.status(500).send();
+      res.status(500).json(err);
     } else {
       res.status(200).json(userinfo);
     };
@@ -30,4 +29,4 @@ app.get("/user/:userid", isLoggedInMiddleware, (req, res) => {
 
 
 
-model.exports = app;
+module.exports = app;
