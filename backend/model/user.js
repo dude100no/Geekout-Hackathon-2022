@@ -1,5 +1,6 @@
 const sequelize = require("./databaseConfig.js");
 const { QueryTypes } = require('sequelize');
+const { encrypt } = require("../utils/aes.js");
 
 var User = {
     getUserInfo : async (userid, callback) => {
