@@ -17,7 +17,7 @@
 // module.exports = dbConnect;
 
 const Sequelize = require('sequelize');
-console.log(process.env.SQL_URL);
+
 const sequelize = new Sequelize(process.env.SQL_URL);
 
 module.exports = sequelize;
