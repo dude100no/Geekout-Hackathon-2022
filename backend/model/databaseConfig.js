@@ -18,6 +18,6 @@
 
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize("mysql://root:WzWhiAODtduaBNtTK5rN@containers-us-west-62.railway.app:6885/railway")
+const sequelize = new Sequelize(process.env.SQL_URL);
 
 module.exports = sequelize;
