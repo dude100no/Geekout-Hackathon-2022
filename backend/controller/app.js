@@ -28,12 +28,12 @@ app.get("/user/:userid", (req, res) => {
 });
 
 // POST Endpoint: To add new user to the database
-app.post("/user/:userid", (req, res) => {
-  User.addUserInfo(req.params.userid, req.body.first_name, req.body.last_name, req.body.type, (err, result) => {
+app.post("/user", (req, res) => {
+  User.addUserInfo(req.body.firstname, req.body.lastname, req.body.type, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.status(200).json({ 'message': `${result.affectedRows} user successfully added` })
+      res.status(200).json({ 'message': `1 user successfully added` })
     };
   });
 });
