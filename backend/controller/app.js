@@ -3,8 +3,6 @@ const path = require('path');
 const fs = require('fs');
 const jwt = require("jsonwebtoken");
 
-const { key } = require("../config.js");
-
 const User = require("../model/user.js");
 
 var app = express();
