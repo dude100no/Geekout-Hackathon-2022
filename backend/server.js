@@ -1,7 +1,7 @@
 
 const serveStatic = require("serve-static");
 const app = require("./controller/app.js");
-const initSocket = require("./socket.js");
+const initSocket = require("./controller/socket.js");
 
 var port = process.env.PORT || '3001';
 

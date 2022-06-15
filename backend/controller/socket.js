@@ -1,5 +1,5 @@
 
-const Message = require('./model/message.js');
+const Message = require('../model/message.js');
 
 const chatRooms = {};
 
