@@ -3,7 +3,7 @@ const { QueryTypes } = require('sequelize');
 const { encrypt } = require('../utils/aes.js');
 
 var Message = {
-    addMsg : async (datetime, sender, recipient, msg, callback=(_, __ => {})) => {
+    addMsg : async (datetime, sender, recipient, msg, callback=(_, __) => {}) => {
         try {
             // TODO: add sentiment analysis here
             msg = encrypt(msg, process.env.AES_SECRET_KEY);
