@@ -1,4 +1,6 @@
 
+const Message = require('./model/message.js');
+
 const chatRooms = {};
 
 const utils = {
@@ -30,13 +32,13 @@ const initSocket = (server) => {
     socket.join(room_id);
 
     socket.on('message', message_data => {
-
+      const timeStamp = (new Date()).getTime();
       io.in(chatRoomId).emit('update_message', {
         ...message_data,
-        timeStamp: (new Date()).getTime()
+        timeStamp
       });
 
-      // TODO: store encrypted message to database
+      Message.addMsg(timeStamp, sender_id, recipient_id, message_data['message']);
 
     });
 
