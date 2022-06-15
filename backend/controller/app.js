@@ -20,13 +20,22 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/user/:userid", (req, res) => {
   User.getUserInfo(req.params.userid, (err, userinfo) => {
     if (err) {
-      res.status(500).json(err);
+      res.status(500).send(err);
     } else {
       res.status(200).json(userinfo);
     };
   });
 });
 
-
+// POST Endpoint: To add new user to the database
+app.post("/user/:userid", (req, res) => {
+  User.addUserInfo(req.params.userid, req.body.first_name, req.body.last_name, req.body.type, (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).json({ 'message': `${result.affectedRows} user successfully added` })
+    };
+  });
+});
 
 module.exports = app;
