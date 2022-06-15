@@ -7,21 +7,21 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Home from './pages/home';
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <Router>
      <div className="App">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </li>
       </ul>
-      <Switch>
-                 <Route exact path='/' element={< Home />}></Route>
-          </Switch>
+      <Routes>
+            <Route exact path='/home' element={< Home />}></Route>
+      </Routes>
      <header className="App-header">
      <h1 style={{fontSize: 80, fontFamily: 'Bradley Hand'}}>Honeycomb</h1>
        <p style={{fontSize: 30, fontFamily: 'monospace'}}>Welcome to Honeycomb, a web app that's here to help.</p>
@@ -48,4 +48,5 @@ function App() {
   </Router>
   )
 }
+
 export default App
