@@ -79,7 +79,7 @@ const initSocket = (server) => {
       const timeStamp = (new Date()).getTime();
       chatNamespace.in(chatRoomId).emit('update_message', {
         ...message_data,
-        timeStamp
+        datetime: timeStamp
       });
 
       Message.addMsg(timeStamp, sender_id, recipient_id, message_data['message']);

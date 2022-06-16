@@ -9,7 +9,7 @@ import { get_user_info } from "../utils";
 const SingpassModal = (props) => {
   const auth = useAuth();
 
-  const [idValue, setIdValue] = useState(null)
+  const [idValue, setIdValue] = useState('')
 
   const login = async () => {
     console.log(idValue);

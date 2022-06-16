@@ -65,8 +65,8 @@ const Dashboard = () => {
               {
                 people.length > 0 &&
                 <>
-                  { [...people.map(match =>
-                    <Button variant="outline-primary" size='md' className='action'>{ match }</Button>
+                  { [...people.map((match, index) =>
+                    <Button onClick={() => setRecipientId(matches[index])} variant="outline-primary" size='md' className='action'>{ match }</Button>
                     ), <Button className='find-new' onClick={() => setShowQueueModal(true)} variant="outline-secondary" size="md">Find New Chat</Button>] }
                   </>
               }
