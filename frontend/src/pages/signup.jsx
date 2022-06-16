@@ -1,10 +1,9 @@
 //add singpass pls farhan
 import React from "react";
-//change background color
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-import "../styles/signup.css";
+
 
 function SignUp() {
   return (
