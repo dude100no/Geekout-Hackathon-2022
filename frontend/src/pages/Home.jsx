@@ -8,7 +8,7 @@ import "../styles/home.css";
 function Home() {
   const navigate = useNavigate();
   return (
-    <div id="home-page">
+    <header id="home-page">
       <h1>Honeycomb</h1>
       <p>Welcome to Honeycomb, a web app that's here to help.</p>
       <div className="buttons">
@@ -19,7 +19,7 @@ function Home() {
           Sign In
         </Button>
       </div>
-    </div>
+    </header>
   );
 }
 export default Home;
