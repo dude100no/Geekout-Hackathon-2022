@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from "./auth";
 import { useEffect } from "react";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
+import Other from "./pages/other";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={auth.isAuthenticated ? <Dashboard /> : <Home /> } />
           {!auth.isAuthenticated && <Route path="/signup" element={<SignUp />} />}
+          <Route path="/other" element={<Other />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

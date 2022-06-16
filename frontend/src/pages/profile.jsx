@@ -1,4 +1,4 @@
-//dashboard
+//auth
 import React from "react";
 function Profile() {
   return <div>profile page</div>;
