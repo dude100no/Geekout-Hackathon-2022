@@ -3,8 +3,8 @@ const Message = require('../model/message.js');
 
 const chatRooms = {};
 
-const customerQueue = [];
-const helperQueue = [];
+let customerQueue = [];
+let helperQueue = [];
 
 const utils = {
   getChatroomId: (sender_id, recipient_id) => {

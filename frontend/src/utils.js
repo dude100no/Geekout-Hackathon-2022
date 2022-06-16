@@ -35,11 +35,11 @@ export const add_user_info = async (firstname, lastname, type) => {
 };
 
 export const user_msg_view = async (userid) => {
-  const user_msg = await fetch(url + `/user/messages/${userid}`, {
+  const user_msg = await (await fetch(url + `/user/messages/${userid}`, {
     method: "GET",
-    heaeders: {
+    headers: {
       "Content-Type": "application/json",
     },
-  });
+  })).json();
   return user_msg;
 };
