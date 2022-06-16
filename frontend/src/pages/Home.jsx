@@ -21,6 +21,9 @@ function Home() {
         <Button variant="flat" size="lg" onClick={() => navigate("/profile")}>
           Sign In
         </Button>
+        <Button variant="flat" size="lg" onClick={() => navigate("/other")}>
+          Other Resources
+        </Button>
       </div>
       {/* <SingpassModal show={true} /> */}
     </header>
