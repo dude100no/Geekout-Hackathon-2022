@@ -11,6 +11,23 @@ function SignUp() {
         <p style={{ fontSize: 30, fontFamily: "monospace" }}>Choose your preferred log in method.
         </p>
       </header>
+      <>
+  <style type="text/css">
+    {`
+    .btn-flat {
+      background-color: orange;
+      color: white;
+    }
+
+    .btn-xxl {
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+    `}
+  </style>
+
+  <Button variant="flat" size="xl" onClick={() => navigate("/profile")}>Sign Up</Button>
+</>
   </div>
   )
 }
