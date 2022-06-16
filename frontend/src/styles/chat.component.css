@@ -60,17 +60,21 @@ div.message {
 }
 
 div.message > .timestamp {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
 }
 
 div.message.incoming {
   text-align: left;
   align-self: start;
+  background-color: white;
+  color: orange;
+  border: 2px solid orange;
 }
 
 div.message.outgoing {
   text-align: right;
   align-self: end;
+  color: white;
 }
 
 div#chat.nothing-selected {
