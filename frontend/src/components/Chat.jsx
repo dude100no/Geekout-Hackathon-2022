@@ -5,6 +5,7 @@ import socketIOClient from 'socket.io-client';
 import '../styles/chat.component.css';
 import { get_user_info, user_msg_view } from "../utils";
 import { useAuth } from "../auth";
+import { useCallback } from "react";
 
 const Chat = ({ recipientId }) => {
   
@@ -39,10 +40,25 @@ const Chat = ({ recipientId }) => {
     
     // // Listens for incoming messages
     socketRef.current.on("update_message", (message) => {
-      console.log(message);
+      console.info('updt_message', message);
       // console.log(incomingMessage);
+      // setMessages([message, ...messages]);
       setMessages([message, ...messages]);
+      if (message.sender === recipientId && auth.user.type === 'Professional') {
+        (async () => {
+          setMessages((await user_msg_view(recipientId)).filter(({sender, recipient}) => (((sender === auth.user.userid) && (recipient === recipientId)) || ((recipient === auth.user.userid) && (sender === recipientId)))));
+        })();
+      }
     });
+
+    if (auth.user.type === 'Professional') {
+      console.log('ok')
+      socketRef.current.on('sentiment_calculated', (processedMessage) => {
+        if (processedMessage.sender !== recipientId) return;
+        console.log(processedMessage);
+        setMessages([...messages].map(message => processedMessage.datetime === message.datetime && processedMessage.message === message.message ? processedMessage : message));
+      });
+    }
     
     // Destroys the socket reference
     // when the connection is closed

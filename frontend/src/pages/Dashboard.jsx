@@ -52,7 +52,7 @@ const Dashboard = () => {
         <div className="row col-10 offset-1">
           <div id="side" className="container col-3 p-3 m-3">
             <p>Logged in as [{ auth.user.userid }] { auth.user.first_name }</p>
-            <Button onClick={logOut}>Log Out</Button>
+            <Button variant="danger" onClick={logOut}>Log Out</Button>
             <h4>Chats</h4>
             <div id="chats">
               {

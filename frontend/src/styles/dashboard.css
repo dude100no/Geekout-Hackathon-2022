@@ -36,7 +36,7 @@ div#side > p {
   margin: 0;
 }
 
-div#side > button {
+div#side > button:not(.btn-danger) {
   background-color: orange;
   border: none;
 }

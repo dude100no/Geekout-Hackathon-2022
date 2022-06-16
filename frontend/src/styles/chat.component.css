@@ -77,6 +77,10 @@ div.message.outgoing {
   color: white;
 }
 
+div.message > .sentiment {
+  font-size: 0.7rem;
+}
+
 div#chat.nothing-selected {
   display: flex;
   align-items: center;
