@@ -2,6 +2,7 @@ const express = require("express");
 const path = require('path');
 const fs = require('fs');
 const jwt = require("jsonwebtoken");
+const bodyParser = require('body-parser')
 
 const User = require("../model/user.js");
 
@@ -11,11 +12,14 @@ var cors = require('cors');
 app.options('*',cors());
 app.use(cors());
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // GET Endpoint: To get the user's sentiment
-app.get("/user/sentiment", (req, res) => {
+app.get("/user/sentiment/", (req, res) => {
   User.getUserSentiment(req.body.sender, req.body.recipient, (err, result) => {
     if (err) {
       res.status(500).send(err);
