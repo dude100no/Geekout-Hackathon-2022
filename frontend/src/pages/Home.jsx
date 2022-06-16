@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+
+
 
 function Home() {
   const navigate = useNavigate();
@@ -12,8 +15,25 @@ function Home() {
           Welcome to Honeycomb, a web app that's here to help.
         </p>
       </header>
-      <Button onClick={() => navigate("/signup")}>Get Started</Button>
-      <Button onClick={() => navigate("/profile")}>Sign In</Button>
+      <>
+  <style type="text/css">
+    {`
+    .btn-flat {
+      background-color: orange;
+      color: white;
+    }
+
+    .btn-xxl {
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+    `}
+  </style>
+
+  <Button variant="flat" size="xl" onClick={() => navigate("/signup")}>Get Started</Button>
+  <Button variant="flat" size="xl" onClick={() => navigate("/profile")}>Sign In</Button>
+</>
+      
     </div>
   );
 }
