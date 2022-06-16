@@ -12,7 +12,7 @@ function SignUp() {
       <p>Please sign up/log in through Singpass.</p>
       <div class="buttons">
         <Button variant="flat" size="xl" onClick={() => navigate("/profile")}>
-          Sign Up
+          Sign Up/Log In
         </Button>
       </div>
       {/* <SingpassModal show={true} /> */}
