@@ -10,9 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Other from "./pages/other";
 
 
-
 function App() {
-
   const auth = useAuth();
   useEffect(() => {
     console.log(auth);
@@ -22,8 +20,14 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={auth.isAuthenticated ? <Dashboard /> : <Home /> } />
-          {!auth.isAuthenticated && <Route path="/signup" element={<SignUp />} />}
+          <Route
+            path="/"
+            element={auth.isAuthenticated ? <Dashboard /> : <Home />}
+          />
+          {!auth.isAuthenticated && (
+            <Route path="/signup" element={<SignUp />} />
+          )}
+          {!auth.isAuthenticated && <Route path="/login" element={<LogIn />} />}
           <Route path="/other" element={<Other />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

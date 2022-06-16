@@ -1,77 +1,43 @@
-#chat .btn:focus {
-  box-shadow: none;
-}
-
-#chat input:focus {
-  box-shadow: none;
-}
-
 #side {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
 }
 
-#side button {
-  flex-grow: 1;
-}
-#chat button.exp {
-  width: 100%;
-}
-
 #dashboard-page > .container {
   height: 80vh;
+  overflow: hidden;
 }
 
-div#side,
-div#chat {
+div#side {
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
 }
 
-div#chat {
+div#side {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
+  overflow: hidden;
+  max-height: 75vh;
 }
 
-div#chat-view {
-  flex-grow: 1;
-  color: black;
-  text-align: left;
+div#side > h4 {
+  color: orange;
+  margin-bottom: 0;
+}
+
+div#chats {
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  gap: 0.5rem;
+  gap: 1rem;
+  overflow-y: scroll;
 }
 
-div#chat-input button {
+div#chats .action {
   background-color: orange;
-}
-
-div#chat-input > .input-group {
-  width: 100%;
-}
-
-.input-group > * {
-  
-  border-radius: 6rem;
-}
-
-div.message {
-  background-color: orange;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  width: min-content;
-  padding: 0.2rem 0.5rem;
-}
-
-div.message.incoming {
-  text-align: left;
-}
-
-div.message.outgoing {
-  align-self: end;
+  color: white;
+  flex-grow: 0;
+  border-color: orange;
 }

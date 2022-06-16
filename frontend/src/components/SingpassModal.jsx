@@ -1,8 +1,6 @@
 import { Modal, Button, Tab, Tabs } from "react-bootstrap";
 
-
 const SingpassModal = (props) => {
-
   return (
     <Modal
       {...props}
@@ -11,7 +9,11 @@ const SingpassModal = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="">
+        <Tabs
+          defaultActiveKey="profile"
+          id="uncontrolled-tab-example"
+          className=""
+        >
           <Tab className="col" eventKey="home" title="Home">
             <></>
           </Tab>
@@ -33,6 +35,6 @@ const SingpassModal = (props) => {
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
 export default SingpassModal;

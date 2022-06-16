@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import Logo from '../logo.svg';
+import Logo from "../logo.svg";
 import SingpassModal from "../components/SingpassModal";
 
 import "../styles/home.css";
