@@ -1,0 +1,7 @@
+#notfound-page {
+  font-family: monospace;
+}
+
+#notfound-page > h1 {
+  font-size: 5rem;
+}

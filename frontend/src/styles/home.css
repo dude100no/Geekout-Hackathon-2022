@@ -14,11 +14,6 @@
   color: white;
 }
 
-#home-page .btn-xl {
-  padding: 1rem 1.5rem;
-  font-size: 1.5rem;
-}
-
 #home-page > .buttons {
   display: flex;
   gap: 1rem;

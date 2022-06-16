@@ -14,10 +14,10 @@ function Home() {
       <h1>Honeycomb</h1>
       <p>Welcome to Honeycomb, a web app that's here to help.</p>
       <div className="buttons">
-        <Button variant="flat" size="xl" onClick={() => navigate("/signup")}>
+        <Button variant="flat" size="lg" onClick={() => navigate("/signup")}>
           Get Started
         </Button>
-        <Button variant="flat" size="xl" onClick={() => navigate("/profile")}>
+        <Button variant="flat" size="lg" onClick={() => navigate("/profile")}>
           Sign In
         </Button>
       </div>
