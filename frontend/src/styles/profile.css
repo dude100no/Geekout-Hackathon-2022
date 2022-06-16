@@ -1,14 +1,14 @@
 #profile-page > h1 {
-    font-size: 50px;
-    font-family: monospace;
-  }
+  font-size: 50px;
+  font-family: monospace;
+}
 
-  #profile-page > h2 {
-    font-size: 40px;
-    font-family: monospace;
-  }
+#profile-page > h2 {
+  font-size: 40px;
+  font-family: monospace;
+}
 
-  #profile-page > p {
-    font-size: 30px;
-    font-family: monospace;
-  }
+#profile-page > p {
+  font-size: 30px;
+  font-family: monospace;
+}

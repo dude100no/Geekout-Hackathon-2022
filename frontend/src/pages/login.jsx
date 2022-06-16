@@ -2,12 +2,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import '../styles/login.css';
-
+import "../styles/login.css";
 
 function LogIn() {
   return (
-    <header id="login-page">
+    <div id="login-page" className="page">
       <h1>Log In</h1>
       <p>Please log in through Singpass.</p>
       <div class="buttons">
@@ -16,7 +15,7 @@ function LogIn() {
         </Button>
       </div>
       {/* <SingpassModal show={true} /> */}
-    </header>
+    </div>
   );
 }
 export default LogIn;
