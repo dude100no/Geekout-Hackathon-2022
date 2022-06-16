@@ -3,8 +3,20 @@ import Chat from '../components/Chat';
 import '../styles/dashboard.css';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { AuthContext, useAuth } from '../auth';
+import { useContext } from 'react';
 
 const Dashboard = () => {
+
+  const auth = useContext(AuthContext);
+
+  const [recipientId, setRecipientId] = useState(null);
+
+  const logOut = () => {
+    console.log('d')
+    auth.signOut();
+    // navigate('/');
+  };
 
   // const [senderId, setSenderId] = useState(2);
   // const [receiverId, setReceiverId] = useState(3);
@@ -16,12 +28,14 @@ const Dashboard = () => {
       <div className="row container">
         <div className="row col-10 offset-1">
           <div id="side" className="container col-3 p-3 m-3">
+            <p>Logged in as [{ auth.user.userid }] { auth.user.first_name }</p>
+            <Button onClick={logOut}>Log Out</Button>
             <h4>Chats</h4>
             <div id="chats">
               {/* { dummyData.map(data => <Button variant="outline-primary" size='md' className='action'>{ data }</Button>) } */}
             </div>
           </div>
-          <Chat />
+          <Chat recipientId={recipientId} />
         </div>
       </div>
     </div>

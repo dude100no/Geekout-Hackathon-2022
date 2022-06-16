@@ -3,35 +3,34 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
-import { AuthProvider, useAuth } from "./auth";
+import { AuthContext, useAuth } from "./auth";
 import { useEffect } from "react";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import Other from "./pages/other";
+import { useContext } from "react";
 
 
 function App() {
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
   useEffect(() => {
-    console.log(auth);
-  }, [auth]);
+    console.log(auth.user);
+  }, [auth.user]);
 
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={auth.isAuthenticated ? <Dashboard /> : <Home />}
-          />
-          {!auth.isAuthenticated && (
-            <Route path="/signup" element={<SignUp />} />
-          )}
-          <Route path="/other" element={<Other />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={auth.isAuthenticated ? <Dashboard /> : <Home />}
+        />
+        {!auth.isAuthenticated && (
+          <Route path="/signup" element={<SignUp />} />
+        )}
+        <Route path="/other" element={<Other />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 

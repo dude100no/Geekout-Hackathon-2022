@@ -1,37 +1,70 @@
-import { Modal, Button, Tab, Tabs } from "react-bootstrap";
+import { Modal, Button, InputGroup, FormControl, FloatingLabel } from "react-bootstrap";
+import { FaLock, FaUser } from 'react-icons/fa';
+import { useAuth } from "../auth";
+import { useState } from "react";
+
+import '../styles/singpass-modal.component.css';
+import { get_user_info } from "../utils";
 
 const SingpassModal = (props) => {
+  const auth = useAuth();
+
+  const [idValue, setIdValue] = useState(null)
+
+  const login = async () => {
+    console.log(idValue);
+    const result = await get_user_info(idValue);
+    console.log(result);
+    if (result.length === 0) {
+      alert("Invalid Singpass ID");
+    } else {
+      auth.signIn(result[0]);
+    }
+  };
+
   return (
     <Modal
       {...props}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      dismissible
     >
       <Modal.Header closeButton>
-        <Tabs
-          defaultActiveKey="profile"
-          id="uncontrolled-tab-example"
-          className=""
-        >
-          <Tab className="col" eventKey="home" title="Home">
-            <></>
-          </Tab>
-          <Tab className="col" eventKey="profile" title="Profile">
-            <></>
-          </Tab>
-        </Tabs>
+        <Modal.Title>Singpass Password Login</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <h5>Log in</h5>
+        <InputGroup>
+          <InputGroup.Text>
+            <FaUser />
+          </InputGroup.Text>
+          <FloatingLabel
+            label="Singpass ID">
+            <FormControl
+                type="number"
+                value={idValue}
+                onChange={e => setIdValue(e.target.value)}
+                placeholder="Singpass ID"
+            />
+          </FloatingLabel>
+        </InputGroup>
+        <InputGroup>
+          <InputGroup.Text>
+            <FaLock />
+          </InputGroup.Text>
+          <FloatingLabel
+            label="Password">
+            <FormControl
+                type="password"
+                placeholder="Password"
+            />
+          </FloatingLabel>
+        </InputGroup>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button variant="primary" onClick={login}>Login</Button>
+        <Button variant="danger" onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );

@@ -13,12 +13,12 @@ export const sentiment_value = async (sender, recipient) => {
 };
 
 export const get_user_info = async (userid) => {
-  const userinfo = await fetch(url + `/user/${userid}`, {
+  const userinfo = await (await fetch(url + `/user/${userid}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-  }).json();
+  })).json();
   return userinfo;
 };
 

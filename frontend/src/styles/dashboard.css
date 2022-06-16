@@ -28,6 +28,19 @@ div#side > h4 {
   margin-bottom: 0;
 }
 
+div#side > p {
+  font-size: 1rem;
+  color: orange;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+
+div#side > button {
+  background-color: orange;
+  border: none;
+}
+
 div#chats {
   display: flex;
   flex-direction: column;

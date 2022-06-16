@@ -1,10 +1,16 @@
+import { useEffect, useRef } from "react";
 import { useContext, useState, createContext } from "react";
 
 const initialUser = {
   isAuthenticated: false
 };
 
-const AuthContext = createContext(initialUser);
+export const AuthContext = createContext({
+  user: null,
+  isAuthenticated: false,
+  signIn: () => {},
+  signOut: () => {}
+});
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -12,11 +18,11 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,
     isAuthenticated: user !== null,
-    signIn: (id) => {
-      setUser({ id, type: "professional" });
+    signIn: (user) => {
+      setUser(user);
     },
     signOut: () => {
-      setUser(initialUser);
+      setUser(null);
     },
   };
 

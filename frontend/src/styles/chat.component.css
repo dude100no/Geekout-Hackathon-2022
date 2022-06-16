@@ -54,3 +54,10 @@ div.message.incoming {
 div.message.outgoing {
   align-self: end;
 }
+
+div#chat.nothing-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: orange;
+}

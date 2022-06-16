@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import socketIOClient from 'socket.io-client';
 import '../styles/chat.component.css';
 
-const Chat = () => {
+const Chat = ({ recipientId }) => {
   
   // const [value, setValue] = useState('');
 
@@ -47,6 +47,14 @@ const Chat = () => {
     //   receiverId: 3
     // });
   };
+
+  if (recipientId === null) {
+    return (
+      <div id="chat" className="nothing-selected container col-8 p-3 m-3">
+        <p>No chat selected</p>
+      </div>
+    );
+  }
   
   return (
     <div id="chat" className="container col-8 p-3 m-3">
