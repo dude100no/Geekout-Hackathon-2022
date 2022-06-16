@@ -27,7 +27,6 @@ function App() {
           {!auth.isAuthenticated && (
             <Route path="/signup" element={<SignUp />} />
           )}
-          {!auth.isAuthenticated && <Route path="/login" element={<LogIn />} />}
           <Route path="/other" element={<Other />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
