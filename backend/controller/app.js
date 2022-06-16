@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require('body-parser')
 
 const User = require("../model/user.js");
+const Message = require("../model/message.js");
 
 var app = express();
 
@@ -47,6 +48,17 @@ app.post("/user", (req, res) => {
       res.status(500).send(err);
     } else {
       res.status(200).json({ 'message': `1 user successfully added` })
+    };
+  });
+});
+
+// GET Endpoint: To get all messages a user has sent or received
+app.get("/user/messages/:userid", (req, res) => {
+  Message.getAllUserMsg(req.params.userid, (err, result) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).json(result);
     };
   });
 });

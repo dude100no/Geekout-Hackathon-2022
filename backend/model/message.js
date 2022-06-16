@@ -17,6 +17,17 @@ var Message = {
             console.log(`Connection unsuccessful ${error}`);
             return callback(error, null);
         };
+    },
+
+    getAllUserMsg : async (userid, callback) => {
+        try {
+            let QUERY = `SELECT * FROM user_messages WHERE sender=${userid} OR recipient=${userid} ORDER BY datetime DESC`
+            let results = await sequelize.query(QUERY, { type: QueryTypes.SELECT });
+            return callback(null, results);
+        } catch (error) {
+            console.log(`Connection unsuccessful ${error}`);
+            return callback(error, null);
+        };
     }
 };
 
