@@ -2,21 +2,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import '../styles/login.css';
 
 
-
-function SignIn() {
+function LogIn() {
   return (
-    <header id="signup-page">
-      <h1>Sign In</h1>
-      <p>Please sign in through Singpass.</p>
+    <header id="login-page">
+      <h1>Log In</h1>
+      <p>Please log in through Singpass.</p>
       <div class="buttons">
         <Button variant="flat" size="xl" onClick={() => navigate("/profile")}>
-          Sign Up
+          Log In
         </Button>
       </div>
       {/* <SingpassModal show={true} /> */}
     </header>
   );
 }
-export default SignUp;
+export default LogIn;

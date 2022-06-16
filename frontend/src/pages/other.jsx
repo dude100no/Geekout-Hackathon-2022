@@ -1,6 +1,7 @@
 //for resources
 import React from "react";
 import { Link } from "react-router-dom";
+import '../styles/other.css';
 
 function Other() {
   return <header id="other-page">
