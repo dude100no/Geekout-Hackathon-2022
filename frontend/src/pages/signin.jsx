@@ -5,11 +5,11 @@ import { Button } from "react-bootstrap";
 
 
 
-function SignUp() {
+function SignIn() {
   return (
     <header id="signup-page">
-      <h1>Sign Up</h1>
-      <p>Please sign up through Singpass.</p>
+      <h1>Sign In</h1>
+      <p>Please sign in through Singpass.</p>
       <div class="buttons">
         <Button variant="flat" size="xl" onClick={() => navigate("/profile")}>
           Sign Up

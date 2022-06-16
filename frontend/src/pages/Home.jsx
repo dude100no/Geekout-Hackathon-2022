@@ -18,7 +18,7 @@ function Home() {
         <Button variant="flat" size="lg" onClick={() => navigate("/signup")}>
           Get Started
         </Button>
-        <Button variant="flat" size="lg" onClick={() => navigate("/profile")}>
+        <Button variant="flat" size="lg" onClick={() => navigate("/signin")}>
           Sign In
         </Button>
         <Button variant="flat" size="lg" onClick={() => navigate("/other")}>
