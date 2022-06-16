@@ -29,7 +29,7 @@ const initSocket = (server) => {
   io.on('connection', socket => {
     const { sender_id, recipient_id } = socket.handshake.query;
     const chatRoomId = utils.getChatroomId(sender_id, recipient_id);
-    socket.join(room_id);
+    socket.join(chatRoomId);
 
     socket.on('message', message_data => {
       const timeStamp = (new Date()).getTime();
