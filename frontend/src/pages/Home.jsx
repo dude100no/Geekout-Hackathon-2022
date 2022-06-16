@@ -10,7 +10,7 @@ import "../styles/home.css";
 function Home() {
   const navigate = useNavigate();
   return (
-    <header id="home-page">
+    <div id="home-page" className="page">
       <img src={Logo} />
       <h1>Honeycomb</h1>
       <p>Welcome to Honeycomb, a web app that's here to help.</p>
@@ -26,7 +26,7 @@ function Home() {
         </Button>
       </div>
       {/* <SingpassModal show={true} /> */}
-    </header>
+    </div>
   );
 }
 export default Home;

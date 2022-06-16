@@ -1,0 +1,77 @@
+#chat .btn:focus {
+  box-shadow: none;
+}
+
+#chat input:focus {
+  box-shadow: none;
+}
+
+#side {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+#side button {
+  flex-grow: 1;
+}
+#chat button.exp {
+  width: 100%;
+}
+
+#dashboard-page > .container {
+  height: 80vh;
+}
+
+div#side,
+div#chat {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+div#chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+div#chat-view {
+  flex-grow: 1;
+  color: black;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+div#chat-input button {
+  background-color: orange;
+}
+
+div#chat-input > .input-group {
+  width: 100%;
+}
+
+.input-group > * {
+  
+  border-radius: 6rem;
+}
+
+div.message {
+  background-color: orange;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  width: min-content;
+  padding: 0.2rem 0.5rem;
+}
+
+div.message.incoming {
+  text-align: left;
+}
+
+div.message.outgoing {
+  align-self: end;
+}

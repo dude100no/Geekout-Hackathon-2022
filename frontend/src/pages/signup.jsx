@@ -7,7 +7,7 @@ import '../styles/signup.css';
 
 function SignUp() {
   return (
-    <header id="signup-page">
+    <div id="signup-page" className="page">
       <h1>Sign Up</h1>
       <p>Please sign up through Singpass.</p>
       <div class="buttons">
@@ -16,7 +16,7 @@ function SignUp() {
         </Button>
       </div>
       {/* <SingpassModal show={true} /> */}
-    </header>
+    </div>
   );
 }
 export default SignUp;
