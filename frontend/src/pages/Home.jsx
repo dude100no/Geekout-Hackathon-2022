@@ -13,6 +13,7 @@ function Home() {
         </p>
       </header>
       <Button onClick={() => navigate("/signup")}>Get Started</Button>
+      <Button onClick={() => navigate("/profile")}>Sign In</Button>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+//this is a dead page, just leaving for ref
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function Page() {
