@@ -1,3 +1,4 @@
+//add singpass pls farhan
 import React from "react";
 //change background color
 import { useNavigate } from "react-router-dom";
@@ -15,6 +16,7 @@ function SignUp() {
           Sign Up
         </Button>
       </div>
+      {/* <SingpassModal show={true} /> */}
     </header>
   );
 }
