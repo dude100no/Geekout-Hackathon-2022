@@ -7,7 +7,7 @@ import { AuthContext, useAuth } from '../auth';
 import { useContext } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import { get_user_info, user_msg_view } from '../utils';
+import { get_user_info, sentiment_value, user_msg_view } from '../utils';
 import QueueModal from '../components/QueueModal';
 
 const Dashboard = () => {
@@ -41,7 +41,11 @@ const Dashboard = () => {
 
   useEffect(() => {
     (async () => {
-      setPeople(await Promise.all(matches.map(async id => (await get_user_info(id))[0].first_name)));
+      setPeople(await Promise.all(matches.map(async id => {
+        const userInfo = (await get_user_info(id))[0];
+        const sentiment = (await sentiment_value(id, auth.user.userid))[0]['Average Sentiment'];
+        return {...userInfo, sentiment};
+      })));
     })();
   }, [matches]);
 
@@ -65,8 +69,8 @@ const Dashboard = () => {
               {
                 people.length > 0 &&
                 <>
-                  { [...people.map((match, index) =>
-                    <Button onClick={() => setRecipientId(matches[index])} variant="outline-primary" size='md' className='action'>{ match }</Button>
+                  { [...people.map((person, index) =>
+                    <Button onClick={() => setRecipientId(matches[index])} variant="outline-primary" size='md' className='action'>{ person.first_name } { auth.user.type === 'Professional' && <span className='sentiment'>Sentiment: { person.sentiment }</span> }</Button>
                     ), <Button className='find-new' onClick={() => setShowQueueModal(true)} variant="outline-secondary" size="md">Find New Chat</Button>] }
                   </>
               }

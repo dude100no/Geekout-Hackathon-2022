@@ -92,4 +92,6 @@ div#chat-header {
   color: orange;
   font-size: 1.2rem;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
 }

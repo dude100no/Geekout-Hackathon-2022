@@ -6,6 +6,7 @@ import '../styles/chat.component.css';
 import { get_user_info, user_msg_view } from "../utils";
 import { useAuth } from "../auth";
 import { useCallback } from "react";
+import InterventionModal from "./InterventionModal";
 
 const Chat = ({ recipientId }) => {
   
@@ -79,6 +80,8 @@ const Chat = ({ recipientId }) => {
     setValue('');
   };
 
+  const [showIntervention, setShowIntervention] = useState(false);
+
   if (recipientId === null) {
     return (
       <div id="chat" className="nothing-selected container col-8 p-3 m-3">
@@ -89,8 +92,10 @@ const Chat = ({ recipientId }) => {
   
   return (
     <div id="chat" className="container col-8 p-3 m-3">
+      <InterventionModal show={showIntervention} setShow={setShowIntervention} />
       <div id="chat-header" className="container p-0">
-        Messaging { recipient.first_name }
+        <span>Messaging { recipient.first_name }</span>
+        {auth.user.type === 'Professional' && <Button variant="danger" onClick={() => setShowIntervention(true)}>Request Intervention</Button>}
       </div>
       <div id="chat-view" className="container p-1">
         { messages.map(message => <Message messageData={message} />) }

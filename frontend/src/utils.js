@@ -1,14 +1,14 @@
 const url = "https://backend-production-2f94.up.railway.app";
 
 export const sentiment_value = async (sender, recipient) => {
-  let body = { sender: 2, recipient: 3 };
-  const sentiment = await fetch(url + "/user/sentiment/", {
+  let body = { sender, recipient };
+  const sentiment = await (await fetch(url + "/user/sentiment/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
-  }).json();
+  })).json();
   return sentiment;
 };
 

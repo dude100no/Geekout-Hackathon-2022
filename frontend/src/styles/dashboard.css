@@ -59,6 +59,13 @@ div#chats .action {
   color: white;
   margin: 0.2rem;
   border-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div#chats .action > .sentiment{
+  font-size: 0.8rem;
 }
 
 div#chats .find-new {
