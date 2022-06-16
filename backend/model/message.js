@@ -4,10 +4,11 @@ const { encrypt, decrypt } = require('../utils/aes.js');
 const { SentimentAnalyzer } = require('node-nlp');
 
 var Message = {
-    addMsg : async (datetime, sender, recipient, msg, callback=(_, __) => {}) => {
+    addMsg : async (datetime, sender, recipient, msg, sentimentCallback, callback=(_, __) => {}) => {
         try {
             const sentiment = new SentimentAnalyzer({ language: 'en' });
             const result = await sentiment.getSentiment(msg);
+            sentimentCallback(result);
             const sentimentScore = result.score;
             msg = encrypt(msg, process.env.AES_SECRET_KEY);
             var QUERY = `INSERT INTO user_messages (datetime, sender, recipient, message, sentiment) VALUES (${datetime}, ${sender}, ${recipient}, '${msg}', ${sentimentScore})`;

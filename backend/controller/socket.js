@@ -77,12 +77,15 @@ const initSocket = (server) => {
 
     socket.on('message', message_data => {
       const timeStamp = (new Date()).getTime();
-      chatNamespace.in(chatRoomId).emit('update_message', {
+      const newMessage = {
         ...message_data,
         datetime: timeStamp
-      });
+      };
+      chatNamespace.in(chatRoomId).emit('update_message', newMessage);
 
-      Message.addMsg(timeStamp, sender_id, recipient_id, message_data['message']);
+      Message.addMsg(timeStamp, sender_id, recipient_id, message_data['message'], (sentiment) => {
+        chatNamespace.in(chatRoomId).emit('sentiment_calculated', {...newMessage, sentiment});
+      });
 
     });
 
