@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import Other from "./pages/other";
-import LogIn from "./pages/login";
+
 
 
 function App() {
@@ -24,7 +24,6 @@ function App() {
         <Routes>
           <Route path="/" element={auth.isAuthenticated ? <Dashboard /> : <Home /> } />
           {!auth.isAuthenticated && <Route path="/signup" element={<SignUp />} />}
-          {!auth.isAuthenticated && <Route path="/login" element={<LogIn />} />}
           <Route path="/other" element={<Other />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
