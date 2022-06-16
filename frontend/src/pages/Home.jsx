@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{ fontSize: 80, fontFamily: "Bradley Hand" }}>Honeycomb</h1>
+        <h1 style={{ fontSize: 80, fontFamily: "monospace" }}>Honeycomb</h1>
         <p style={{ fontSize: 30, fontFamily: "monospace" }}>
           Welcome to Honeycomb, a web app that's here to help.
         </p>
