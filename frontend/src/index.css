@@ -26,3 +26,8 @@ code {
   color: rgb(255, 255, 255);
   text-align: center;
 }
+
+.btn:focus {
+  --button-box-shadow: rgb(255, 183, 0);
+  box-shadow: 0 0 0 0.25rem var(--button-box-shadow);
+}
