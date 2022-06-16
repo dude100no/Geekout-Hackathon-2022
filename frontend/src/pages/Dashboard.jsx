@@ -1,5 +1,5 @@
 
-import Chat from './Chat';
+import Chat from '../components/Chat';
 import '../styles/dashboard.css';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';

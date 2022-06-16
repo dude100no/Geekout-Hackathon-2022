@@ -1,8 +1,8 @@
 import { InputGroup, FormControl, Button } from "react-bootstrap";
-import Message from "../components/Message";
+import Message from "./Message";
 import { useEffect, useRef, useState } from "react";
 import socketIOClient from 'socket.io-client';
-import { useCallback } from "react";
+import '../styles/chat.component.css';
 
 const Chat = () => {
   
@@ -58,7 +58,7 @@ const Chat = () => {
           <FormControl
             placeholder="Message"
             aria-label="Message"
-            value={value}
+            // value={value}
             onChange={e => setValue(e.target.value)}
           />
           <Button variant="secondary" onClick={sendMessage}>
