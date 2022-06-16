@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // GET Endpoint: To get the user's sentiment
-app.get("/user/sentiment/", (req, res) => {
+app.post("/user/sentiment/", (req, res) => {
   User.getUserSentiment(req.body.sender, req.body.recipient, (err, result) => {
     if (err) {
       res.status(500).send(err);
