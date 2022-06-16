@@ -7,7 +7,7 @@ import "../styles/signup.css";
 
 function SignUp() {
   return (
-    <header id="signup-page">
+    <div id="signup-page" className="page">
       <h1>Sign Up</h1>
       <p>Choose your preferred log in method.</p>
       <div class="buttons">
@@ -15,7 +15,7 @@ function SignUp() {
           Sign Up
         </Button>
       </div>
-    </header>
+    </div>
   );
 }
 export default SignUp;

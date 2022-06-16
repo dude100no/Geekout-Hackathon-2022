@@ -15,7 +15,7 @@ code {
     monospace;
 }
 
-#root > header {
+#root > div.page {
   background-color: #e5ac3f;
   background-image: linear-gradient(rgb(255, 145, 0), #FDFD96);
   min-height: 100vh;
