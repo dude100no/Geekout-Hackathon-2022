@@ -80,7 +80,7 @@ const Chat = ({ recipientId }) => {
         { messages.map(message => <Message messageData={message} />) }
       </div>
       <div id="chat-input" className="row container p-0">
-        <form onSubmit={sendMessage}>
+        <form onSubmit={sendMessage} className="p-0">
           <InputGroup className="p-0">
             <FormControl
               placeholder="Message"

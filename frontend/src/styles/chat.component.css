@@ -65,6 +65,7 @@ div.message > .timestamp {
 
 div.message.incoming {
   text-align: left;
+  align-self: start;
 }
 
 div.message.outgoing {
