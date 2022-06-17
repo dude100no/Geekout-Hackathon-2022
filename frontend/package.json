@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "prettify": "npx prettier --write .",
-    "serve": "npx serve ./build"
+    "serve": "npx serve ./dist",
+    "start": "npm run build & npm run serve"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",

@@ -77,7 +77,13 @@ const Dashboard = () => {
               
             </div>
           </div>
-          <Chat recipientId={recipientId} />
+          <Chat recipientId={recipientId} reloadSentiment={(async () => {
+            setPeople(await Promise.all(matches.map(async id => {
+              const userInfo = (await get_user_info(id))[0];
+              const sentiment = (await sentiment_value(id, auth.user.userid))[0]['Average Sentiment'];
+              return {...userInfo, sentiment};
+            })));
+          })} />
         </div>
       </div>
     </div>

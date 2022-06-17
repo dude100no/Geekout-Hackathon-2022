@@ -8,7 +8,7 @@ import { useAuth } from "../auth";
 import { useCallback } from "react";
 import InterventionModal from "./InterventionModal";
 
-const Chat = ({ recipientId }) => {
+const Chat = ({ recipientId, reloadSentiment }) => {
   
   const auth = useAuth();
   const [recipient, setRecipient] = useState({first_name: ''});
@@ -49,6 +49,7 @@ const Chat = ({ recipientId }) => {
         (async () => {
           setMessages((await user_msg_view(recipientId)).filter(({sender, recipient}) => (((sender === auth.user.userid) && (recipient === recipientId)) || ((recipient === auth.user.userid) && (sender === recipientId)))));
         })();
+        reloadSentiment();
       }
     });
 
