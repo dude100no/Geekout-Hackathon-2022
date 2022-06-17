@@ -70,7 +70,7 @@ const Dashboard = () => {
                 people.length > 0 &&
                 <>
                   { [...people.map((person, index) =>
-                    <Button onClick={() => setRecipientId(matches[index])} variant="outline-primary" size='md' className='action'>{ person.first_name } { auth.user.type === 'Professional' && <span className='sentiment'>Sentiment: { person.sentiment }</span> }</Button>
+                    <Button onClick={() => setRecipientId(Number.parseInt(matches[index]))} variant="outline-primary" size='md' className='action'>{ person.first_name } { auth.user.type === 'Professional' && <span className='sentiment'>Sentiment: { person.sentiment }</span> }</Button>
                     ), <Button className='find-new' onClick={() => setShowQueueModal(true)} variant="outline-secondary" size="md">Find New Chat</Button>] }
                   </>
               }
